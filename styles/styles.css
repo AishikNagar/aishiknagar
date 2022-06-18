@@ -1089,6 +1089,10 @@ section {
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .achievement-container .right-about {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .timeline {
     grid-template-columns: repeat(1, 1fr);
   }
