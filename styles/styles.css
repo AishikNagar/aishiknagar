@@ -901,6 +901,20 @@ section {
     padding-left: 0;
   }
 
+  .achievement-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .achievement-container .right-about {
+    grid-template-columns: repeat(1, 1fr);
+    padding-top: 2.5rem;
+  }
+  .achievement-container .left-about {
+    padding-right: 0;
+  }
+  .achievement-container .left-about p {
+    padding-left: 0;
+  }
+
   .timeline {
     grid-template-columns: repeat(1, 1fr);
     padding-bottom: 6rem;
@@ -1032,6 +1046,13 @@ section {
     padding-top: 2.5rem;
   }
 
+  .achievement-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .achievement-container .right-about {
+    padding-top: 2.5rem;
+  }
+
   .main-title h2 {
     font-size: 4rem;
   }
@@ -1048,6 +1069,10 @@ section {
   }
 
   .about-container .left-about {
+    padding-right: 0rem;
+  }
+
+  .achievement-container .left-about {
     padding-right: 0rem;
   }
 
