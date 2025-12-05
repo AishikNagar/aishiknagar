@@ -842,8 +842,10 @@
                         ${p.tag ? `<div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/50 to-transparent"><span class="text-white text-xs font-bold px-2">${p.tag}</span></div>` : ''}
                     </div>
                     <div class="p-4 flex flex-col flex-grow">
-                        <h3 class="font-medium text-textDark mb-2 text-lg">${p.title}</h3>
-                        <p class="text-sm text-textGray flex-grow line-clamp-3 mb-4">${p.desc}</p>
+                        <h3 title="${p.title}" class="font-medium text-textDark mb-2 text-lg">${p.title}</h3>
+                        
+                        <p title="${p.desc}" class="text-sm text-textGray flex-grow line-clamp-3 mb-4">${p.desc}</p>
+                        
                         <div class="mt-auto flex gap-4 border-t border-gray-100 pt-3">
                             ${p.github ? `<a href="${p.github}" target="_blank" class="text-textGray hover:text-googleBlue text-sm font-medium flex items-center gap-1"><i class="fab fa-github"></i> Source</a>` : ''}
                             ${p.demo ? `<a href="${p.demo}" target="_blank" class="text-textGray hover:text-googleRed text-sm font-medium flex items-center gap-1"><i class="fab fa-youtube"></i> Demo</a>` : ''}
@@ -894,11 +896,11 @@
                     iconOrImg = `<div class="w-24 h-24 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden relative">
                                     <img src="${thumb}" class="w-full h-full object-cover" alt="Video">
                                     <div class="absolute inset-0 flex items-center justify-center bg-black/20"><i class="fas fa-play text-white"></i></div>
-                                 </div>`;
+                                </div>`;
                 } else {
                     iconOrImg = `<div class="w-24 h-24 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden flex items-center justify-center text-3xl text-gray-400">
                                     <i class="${m.icon || 'far fa-newspaper'}"></i>
-                                 </div>`;
+                                </div>`;
                 }
 
                 return `
@@ -906,9 +908,11 @@
                     <div class="flex gap-4">
                         ${iconOrImg}
                         <div>
-                            <h3 class="font-medium text-linkBlue group-hover:underline leading-snug mb-1 line-clamp-2">${m.title}</h3>
+                            <h3 title="${m.title}" class="font-medium text-linkBlue group-hover:underline leading-snug mb-1 line-clamp-2">${m.title}</h3>
+                            
                             <p class="text-sm text-green-700 mb-1">${m.source}</p>
-                            <p class="text-xs text-textGray line-clamp-2">${m.desc}</p>
+                            
+                            <p title="${m.desc}" class="text-xs text-textGray line-clamp-2">${m.desc}</p>
                         </div>
                     </div>
                 </a>`;
