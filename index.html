@@ -117,6 +117,25 @@
             transition-duration: 0.1s; /* 0.5s is smooth. Change to 1s for very slow */
             transition-timing-function: ease-in-out;
         }
+
+        /* --- Floating Button Specific Styles --- */
+        #theme-toggle-fab {
+            background-color: #ffffff;
+            color: #5f6368; /* Google Gray */
+            border: 1px solid #dadce0;
+        }
+
+        /* Specific Dark Mode Look for the FAB */
+        body.dark #theme-toggle-fab {
+            background-color: #303134; /* Google Dark Grey */
+            color: #e8eaed; /* Light Text */
+            border-color: #5f6368;
+        }
+
+        /* Hover Effect for Dark Mode */
+        body.dark #theme-toggle-fab:hover {
+            background-color: #3c4043;
+        }
     </style>
 </head>
 <body class="bg-white text-textDark">
@@ -143,10 +162,6 @@
                 <a href="#leadership" class="hover:text-googleBlue transition">Activities</a>
                 <a href="#achievements" class="hover:text-googleBlue transition">Awards</a>
                 <a href="#contact" class="px-5 py-2 bg-googleBlue text-white rounded-md hover:bg-blue-700 transition font-medium shadow-md">Contact</a>
-                
-                <button class="theme-toggle ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-textGray dark:text-textPrimary" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
             </div>
 
             <div class="lg:hidden flex items-center gap-2">
@@ -166,13 +181,6 @@
                 <a href="#leadership" class="text-textDark font-medium">Activities</a>
                 <a href="#achievements" class="text-textDark font-medium">Awards</a>
                 <a href="#contact" class="text-googleBlue font-bold">Contact</a>
-                
-                <button class="theme-toggle flex items-center gap-3 text-textDark font-medium py-2">
-                    <div class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <span>Toggle Dark Mode</span>
-                </button>
             </div>
         </div>
     </nav>
@@ -180,33 +188,82 @@
     <!-- Hero / Search Section -->
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-16">
         <div class="flex flex-col items-center w-full max-w-2xl animate-fade-in">
-            <!-- Big Logo -->
+            
             <div class="text-[3.5rem] md:text-[5.5rem] leading-none mb-8 g-logo tracking-tighter select-none">
                 <span class="text-googleBlue">A</span><span class="text-googleRed">i</span><span class="text-googleYellow">s</span><span class="text-googleBlue">h</span><span class="text-googleGreen">i</span><span class="text-googleRed">k</span>
             </div>
 
-            <!-- Search Bar -->
-            <div class="w-full relative group shadow-search border border-transparent hover:shadow-md transition-shadow duration-200 bg-white rounded-full">
-                <div class="flex items-center px-5 py-3 md:py-3.5 border border-gray-200 rounded-full group-hover:border-transparent">
+            <div id="search-container" class="w-full relative z-30">
+                
+                <div class="flex items-center px-5 py-3 md:py-3.5 border border-gray-200 rounded-full bg-white shadow-search hover:shadow-md transition-shadow duration-200 relative z-20">
                     <i class="fas fa-search text-gray-400 mr-4"></i>
-                    <input type="text" value="Who is Aishik Nagar?" readonly 
-                           class="w-full outline-none text-textDark text-lg font-normal bg-transparent cursor-default font-roboto truncate">
+                    <input id="search-input" type="text" placeholder="Search Aishik" 
+                        class="w-full outline-none text-textDark text-lg font-normal bg-transparent cursor-text font-roboto truncate placeholder-gray-400">
                     <i class="fas fa-microphone text-googleBlue text-xl ml-4 cursor-pointer hover:opacity-80"></i>
+                </div>
+
+                <div id="search-dropdown" class="hidden absolute top-full left-0 w-full bg-white shadow-material-hover rounded-2xl overflow-hidden mt-2 border border-gray-100 py-2 z-10">
+                    
+                    <div class="px-4 py-2 text-xs font-bold text-textGray uppercase tracking-wider">I'm Feeling Lucky</div>
+                    
+                    <a href="#about" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-user-circle text-gray-400 text-sm group-hover:text-googleYellow transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">About Aishik Nagar</span>
+                    </a>
+
+                    <a href="#experience" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-briefcase text-gray-400 text-sm group-hover:text-googleBlue transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Professional Experience</span>
+                    </a>
+
+                    <a href="#education" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-graduation-cap text-gray-400 text-sm group-hover:text-googleRed transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Education</span>
+                    </a>
+
+                    <a href="#publications" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-book-open text-gray-400 text-sm group-hover:text-googleBlue transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Scholar & Publications</span>
+                    </a>
+
+                    <a href="#projects" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-code text-gray-400 text-sm group-hover:text-googleYellow transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Projects</span>
+                    </a>
+
+                    <a href="#media" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="far fa-newspaper text-gray-400 text-sm group-hover:text-googleRed transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">In the News</span>
+                    </a>
+
+                    <a href="#leadership" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-users text-gray-400 text-sm group-hover:text-googleGreen transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Leadership & Activities</span>
+                    </a>
+
+                    <a href="#achievements" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-trophy text-gray-400 text-sm group-hover:text-googleYellow transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Awards & Achievements</span>
+                    </a>
+
+                    <a href="#contact" class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer transition-colors duration-100 gap-4 group">
+                        <i class="fas fa-paper-plane text-gray-400 text-sm group-hover:text-googleBlue transition-colors w-5 text-center"></i>
+                        <span class="text-textDark font-medium font-roboto">Contact</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Buttons -->
-            <div class="mt-8 space-x-3 flex flex-wrap justify-center gap-y-3">
+            <div class="mt-8 space-x-3 flex flex-wrap justify-center gap-y-3 relative z-0">
                 <a href="#about" class="btn-google bg-gray-50 text-textDark hover:bg-gray-100 hover:shadow-sm hover:border-gray-300 border border-transparent px-6 py-2.5 rounded-md text-sm font-medium transition cursor-pointer">
-                    Aishik's Portfolio
+                    I'm Feeling Lucky
                 </a>
                 <a href="./Aishik_Nagar_Resume.pdf" target="_blank" download class="btn-google bg-gray-50 text-textDark hover:bg-gray-100 hover:shadow-sm hover:border-gray-300 border border-transparent px-6 py-2.5 rounded-md text-sm font-medium transition cursor-pointer">
                     Download CV
                 </a>
             </div>
 
-            <div class="mt-8 text-sm text-textGray font-roboto text-center">
-                Skills: <span class="text-googleBlue font-medium">Machine Learning Engineering</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium">Software Engineering</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium">AI Research</span>
+            <div class="mt-8 text-sm text-textGray font-roboto text-center relative z-0">
+                <span class="text-googleBlue font-medium">Machine Learning Engineering</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium"> AI Research</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium">Software Engineering</span>
             </div>
         </div>
     </section>
@@ -680,6 +737,10 @@
         </div>
     </section>
 
+    <button id="theme-toggle-fab" class="fixed bottom-6 right-6 z-[60] p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon text-xl group-hover:rotate-12 transition-transform"></i>
+    </button>
+
     <!-- Data & Scripts -->
     <script>
         // --- 1. DATA ARRAYS (Easy to Update) ---
@@ -992,22 +1053,20 @@
             renderAwards();
             renderMedia();
 
-            // --- Dark Mode Logic ---
-            const themeToggleBtns = document.querySelectorAll('.theme-toggle');
+            // --- Dark Mode Logic (Floating Button) ---
+            const themeToggleFab = document.getElementById('theme-toggle-fab');
+            const themeIcon = themeToggleFab.querySelector('i');
             const htmlBody = document.body;
 
-            // Function to update icons on all buttons
-            function updateIcons(isDark) {
-                themeToggleBtns.forEach(btn => {
-                    const icon = btn.querySelector('i');
-                    if (isDark) {
-                        icon.classList.remove('fa-moon');
-                        icon.classList.add('fa-sun');
-                    } else {
-                        icon.classList.remove('fa-sun');
-                        icon.classList.add('fa-moon');
-                    }
-                });
+            // Function to update icon
+            function updateIcon(isDark) {
+                if (isDark) {
+                    themeIcon.classList.remove('fa-moon', 'text-textGray');
+                    themeIcon.classList.add('fa-sun', 'text-yellow-400'); // Yellow sun for dark mode
+                } else {
+                    themeIcon.classList.remove('fa-sun', 'text-yellow-400');
+                    themeIcon.classList.add('fa-moon', 'text-textGray');
+                }
             }
 
             // 1. Check Local Storage or System Preference on Load
@@ -1016,23 +1075,49 @@
 
             if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
                 htmlBody.classList.add('dark');
-                updateIcons(true);
+                updateIcon(true);
             }
 
-            // 2. Add Event Listeners to ALL toggle buttons (Desktop & Mobile)
-            themeToggleBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    htmlBody.classList.toggle('dark');
-                    const isDark = htmlBody.classList.contains('dark');
-                    
-                    // Update Local Storage
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    
-                    // Update all icons
-                    updateIcons(isDark);
+            // 2. Add Event Listener to the FAB
+            themeToggleFab.addEventListener('click', () => {
+                htmlBody.classList.toggle('dark');
+                const isDark = htmlBody.classList.contains('dark');
+                
+                // Update Local Storage
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                
+                // Update icon
+                updateIcon(isDark);
+            });
+
+            // --- Search Suggestions Logic ---
+            const searchInput = document.getElementById('search-input');
+            const searchDropdown = document.getElementById('search-dropdown');
+            const searchContainer = document.getElementById('search-container');
+
+            // 1. Show suggestions on input click
+            searchInput.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                searchDropdown.classList.remove('hidden');
+                // Google UX: Add a slight shadow/border highlight to container if desired
+                searchContainer.querySelector('div').classList.add('shadow-md');
+            });
+
+            // 2. Hide suggestions when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchContainer.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                    searchContainer.querySelector('div').classList.remove('shadow-md');
+                }
+            });
+
+            // 3. Handle link clicks (Smooth Scroll + Close Dropdown)
+            searchDropdown.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    searchDropdown.classList.add('hidden');
                 });
             });
-            
+                        
             // Mobile Menu Toggle
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
