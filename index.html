@@ -1,1314 +1,919 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aishik Nagar</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./img/favicon.jpg"/>
+    <title>Aishik Nagar - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Product Sans"', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        googleBlue: '#1a73e8',
+                        googleRed: '#ea4335',
+                        googleYellow: '#fbbc04',
+                        googleGreen: '#34a853',
+                        googleGray: '#f1f3f4',
+                        textDark: '#202124',
+                        textGray: '#5f6368',
+                        linkBlue: '#1a0dab',
+                    },
+                    boxShadow: {
+                        'material': '0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15)',
+                        'material-hover': '0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15)',
+                        'search': '0 1px 6px 0 rgba(32,33,36,0.28)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Product Sans';
+            src: local('Product Sans'), url('https://fonts.gstatic.com/s/productsans/v9/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2') format('woff2');
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        h1, h2, h3, h4, .g-logo, nav a, .btn-google {
+            font-family: 'Product Sans', sans-serif;
+        }
+
+        /* Google-like Scrollbar */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: #dadce0; border: 3px solid #fff; border-radius: 8px; }
+        ::-webkit-scrollbar-thumb:hover { background: #bdc1c6; }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
 </head>
-<body class="main-content">
-    <header class="container header active" id="home">
-        <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/me.JPG" alt="">
-                </div>
+<body class="bg-white text-textDark">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white border-b border-gray-200 z-50 h-16 flex items-center shadow-sm">
+        <div class="w-full max-w-[1400px] mx-auto px-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-1 text-2xl tracking-tighter hover:opacity-90 transition select-none">
+                <span class="text-googleBlue font-bold">A</span>
+                <span class="text-googleRed font-bold">i</span>
+                <span class="text-googleYellow font-bold">s</span>
+                <span class="text-googleBlue font-bold">h</span>
+                <span class="text-googleGreen font-bold">i</span>
+                <span class="text-googleRed font-bold">k</span>
+            </a>
+            
+            <div class="hidden lg:flex space-x-6 text-sm text-textGray font-medium items-center">
+                <a href="#about" class="hover:text-googleBlue transition">About</a>
+                <a href="#experience" class="hover:text-googleBlue transition">Experience</a>
+                <a href="#education" class="hover:text-googleBlue transition">Education</a>
+                <a href="#publications" class="hover:text-googleBlue transition">Scholar</a>
+                <a href="#projects" class="hover:text-googleBlue transition">Projects</a>
+                <a href="#media" class="hover:text-googleBlue transition">Media</a>
+                <a href="#leadership" class="hover:text-googleBlue transition">Activities</a>
+                <a href="#achievements" class="hover:text-googleBlue transition">Awards</a>
+                <a href="#contact" class="px-5 py-2 bg-googleBlue text-white rounded-md hover:bg-blue-700 transition font-medium shadow-md">Contact</a>
             </div>
-            <div class="right-header">
-                <h1 class="name">
-                    Hi, I'm <span>Aishik Nagar.</span>
-                </h1>
-                <h2>Your Friendly Neighborhood Engineer</h2>
-                <!-- <p>
-                    Hiya and welcome to my website! 
-                </p> -->
-                <br />
-                <div class="btn-con">
-                    <a href="./Aishik_Nagar_Resume.pdf" class="main-btn" download>
-                        <span class="btn-text">Download CV</span>
-                        <span class="btn-icon"><i class="fas fa-download"></i></span>
-                    </a>
-                </div>
+             <!-- Mobile Menu Button -->
+             <div class="lg:hidden">
+                <button id="mobile-menu-btn" class="text-gray-600 p-2 hover:bg-gray-100 rounded-full transition">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
-    </header>
-    <main>
-        <section class="container about" id="about">
-            <div class="main-title">
-                <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
-            </div>
-            <div class="about-container">
-                <div class="left-about">
-                    <h4>Who am I?</h4>
-                    <p>
-                        I'm Aishik, a Software Developement Engineer building Healthcare AI and systems at <strong><a href="https://aics.asus.com/home/">ASUS Intelligent Cloud Services</a></strong> Before this, I did my Bachelor of Engineering (Electrical and Electronics Engineering) at <strong><a href="https://www.ntu.edu.sg/Pages/home.aspx">Nanyang Technological University.</a></strong> My schooling was from <strong><a href="https://www.theheritageschool.org/">The Heritage School</a></strong> in Kolkata, India.
-                    </p>
-                    <p>
-                        Most of my time is spent in programming, working on fun projects and solving challenging problems. I have an acute interest in the mesmerizing world of data science, AI and engineering. The wonders which technology can produce never ceases to amaze me.
-                    </p>
-                    <p>
-                        I'm a huge sucker for sports like badminton, swimming, table tennis, cricket and athletics. In my free time, one can catch me watching comedy shows, drinking coffee and playing board games.
-                    </p>
-                    <div class="btn-con">
-                        <a href="./Aishik_Nagar_Resume.pdf" class="main-btn" download>
-                            <span class="btn-text">Download CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="right-about">
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">150M+</p>
-                            <p class="small-text">Requests Served <br /> Per Day</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">3+</p>
-                            <p class="small-text">Years of <br /> experience</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">30+</p>
-                            <p class="small-text">Projects <br /> Completed</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">45K+</p>
-                            <p class="small-text">YouTube <br /> Views</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">10+</p>
-                            <p class="small-text">Global Media <br /> Coverage</p>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">5+</p>
-                            <p class="small-text">Global and <br /> National Awards</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="achievement-container">
-            <div class="about-stats">
-                <h4 class="stat-title">Achievements and Activities</h4>
-
-                <div class="right-about">
-
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Co-Founder</p>
-                            <p class="small-text">DementiCare</p>
-                            <br />
-
-                            <p>Built a mobile application to complement caregiving for dementia patients from scratch. Talked to organizations like Allium healthCare, Jamiyah Nursing home and ADA Singapore to understand their requirements and Engineered a first-of-its-kind scalable software allowing for flow of information and separation of features for patients and their caregivers.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Co-Founder</p>
-                            <p class="small-text">Geolytics.AI</p>
-                            <br />
-
-                            <p>Developed an AI Enabled platform for Natural Disaster Risk Management. Discussed with National Disaster Management Authority of India and the Earth Observatory of Singapore to deploy scalable and groundbreaking AI pipelines for automating Disaster Management Procedures.</p>
-                        </div>
-                    </div>
-
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">World Champion</p>
-                            <p class="small-text">Google Developer Solution Challenge, 2021</p>
-                            <br />
-
-                            <p>Won the global competition for innovative use of technology and overall impact on society. First ever team from NTU to represent Singapore in the World Finals and win the global competition. Coffee Chat with Mr. Jason Titus, the VP of Developer Product Groups at Google. Presented DementiCare to him and talked about sustainability, Engineering and Education at NTU with him.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Asia Pacific Champion</p>
-                            <p class="small-text">Microsoft Virtual Hackathon (Ongoing)</p>
-                            <br />
-                            <p>Winner of 1st prize as well as the Prize for Best use of Microsoft Azure in one of Asia Pacific's largest Innovation Hackathon, hosted by Microsoft. Selected based on general impressiveness, use of Azure in building sophisticated systems, innovation in AI, buisiness feasibility of the project and impact on society.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">National Gold</p>
-                            <p class="small-text">Singapore Techblazer Awards,2022</p>
-                            <br />
-
-                            <p>The Techblazer Awards is the Nation’s Highest Accolade for Tech Innovation and aims to provide recognition and endorsement to Singapore-based organizations that have exemplified the spirit of innovation in their development of tech products and services, or their use of tech to achieve excellence.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Koh Boon Hwee Scholar's Award</p>
-                            <p class="small-text">NTU Batch of 2022</p>
-                        </div>
-                        <br />
-                        <p>Presented the University Scholar's Award Gold Medal by the President of Singapore, Ms Halimah Yacob</p>
-                        <p>The Koh Boon Hwee Scholars Award seeks to recognise the accomplishments of our exceptionally talented graduating students, who display strong leadership ability and have demonstrated great potential to contribute to the society. The award also allows the students to honour their nominated teachers (a teacher from their former junior college, polytechnic, or equivalent institution) and university faculty members for their dedication and contributions in inspiring and providing youths with an outstanding holistic education.</p>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">NTU EEE Excellence Award</p>
-                            <p class="small-text">NTU Batch of 2022</p>
-                        </div>
-                        <br />
-
-                        <p>Won the Award for overall Excellence and meritorious performance in Academics, Co-Curricular Activites, Entrepreneruial spirit and Leadership during Undergraduate studies.</p>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">All India Rank 4</p>
-                            <p class="small-text">Indian National High School Examinations (ISC Board)</p>
-                            <br />
-
-                            <p>Topped the School and State and secured an AIR 4 in National Board Examinations with a cumulative score of 98.75%. Facilitated by the Chief Minister of West Bengal, Mamata Banerjee, for outstanding academic performance in these examinations.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Inspire Scholarship</p>
-                            <p class="small-text">Central Government of India</p>
-                            <br />
-
-                            <p>Recieved grant and scholarship from the Central Government of India for being the top 1% performer in National Examinations. The scholarship applied if I were to do my further studies in Indian National Universities.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Nanyang Science and Engineering Scholar</p>
-                            <p class="small-text">Nanyang Technological University</p>
-                        </div>
-                        <br />
-
-                        <p>Recieved 100% scholarship from Nanyang Technological University, including coverage for living and housing expenses.</p>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Top 3 in Singapore</p>
-                            <p class="small-text">15K Entrepreneurship Competition</p>
-                            <br />
-
-                            <p>Placed top 3 in the 15K competition, which is a cross university tech entrepreneurship competition organized by MIT Singapore, JA Singapore and NTUitive. Competed with not only undergraduates but also graduates, masters students and full time technopreneurs in the competition. Pitched the product to over 21 Venture Capitalists to win the semi-finals round of the investment game organized by NTUitive. Pitched the product to dignitaries like Mr Ming Ma (President of Grab) to place Top 3 in the competition, winning SGD 7,000 for the exemplary performance.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">
-                                Global Top 10 Finalist</p>
-                            <p class="small-text">Grab Hackathon</p>
-                            <br />
-
-                            <p>Placed Top 10 in Grabs Global Hackathon - Grab Hack For Good. 
-
-                                Built a solution incorporating Grab technology and vision to solve UN Sustainable Development Goals</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Top 3 in Singapore</p>
-                            <p class="small-text">Google Hackfest Singapore</p>
-                            <br />
-
-                            <p>Developed Geolytics.AI to solve UN Sustainable Development Goals and pitched the application to Google Developer Experts. Placed Top 3 in the Cross University Innovation Competition held in the Google Office, Singapore.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Outstanding Student Personality</p>
-                            <p class="small-text">The Heritage School, Batch of 2018</p>
-                            <br />
-
-                            <p>Won the Outstanding Student Personality Award for the batch of 2018 in High school for overall excellence in Academics, Extra-Curriculars and Leadership abilities. The Award included a Nomination as well as a school wide voting round. Facilitated with the award by the Governor of West Bengal, India, Shri Keshari Nath Tripathi.</p>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Top 7</p>
-                            <p class="small-text">EnlighteNUS Hackathon</p>
-
-                            <br />
-                            <p>Top 7 Finalist in the EnlighteNUS Hackathon held at NUS. Developed an AI powered hack in the Education themed competition for allowing students to find the "Science" behind everyday objects using Computer Vision, NLP and Cloud Technologies.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Chairperson</p>
-                            <p class="small-text">iNTUition v7.0</p>
-                            <br />
-
-                            <p>In University, I chaired iNTUition, which is NTU's flagship hackathon. I managed the finance, logistics, business and operations departments for the entire event, which had to completely revamped to cope with the unique Covid-19 situation. Apart from developing and maintaining the iNTUition v7.0 official website, I also Developed and deployed an avatar-based virtual platform for the online event using Go, Angular, Redis and AWS. Additionally, I also built an Event Registration System with SSO functionality using Angular.js, MongoDB and Heroku. Using the platforms and technologies we had developed for the event, we brought in record sponsors with companies such as SAP, HP, Bigo, GovTech, IEEE and many others involved in the event, as well as took the event international for the first time. Over 500 participants from all over South East Asia participated in the event!</p>
-
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Student Leadership</p>
-                            <p class="small-text">Nanyang Technological University</p>
-                            <br />
-
-                            <p>I led the Technical Department of IEEE NTU Student branch for over 2 years and was a Trainer and Developer at the Garage@EEE club in School of EEE,NTU. In my final year, I was involved with Google Developer Student Club NTU as an events director where I helped enable students to create impactful products using Google Technologies.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Student Leadership</p>
-                            <p class="small-text">The Heritage School</p>
-                            <br />
-
-                            <p>In High School, I was the School Vice Captain in my final year, where I led the School Student Council (Having over 300 representative members) in organizing events and making decisions. Was part of the Core Committee and the Head of Executive for "Youthopia", the largest student organized fest in the state.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- <div class="about-item">
-                        <div class="abt-text">
-                            <p class="large-text">Co-Curricular Activites</p>
-                            <p class="small-text">Sports and Hobbies</p>
-                            <br />
-
-                            <p>I play sports such as Swimming, Badmintion and Table Tennis, and also an avid player of several board games. In High SChool, I was quite involved in the quizzing scene, and reached Finals of several city wide competitions.</p>
-                        </div>
-                    </div> -->
-
-
-
-                </div>
-
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white border-b border-gray-200 shadow-lg lg:hidden z-50">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#about" class="text-textDark font-medium">About</a>
+                <a href="#experience" class="text-textDark font-medium">Experience</a>
+                <a href="#projects" class="text-textDark font-medium">Projects</a>
+                <a href="#publications" class="text-textDark font-medium">Scholar</a>
+                <a href="#media" class="text-textDark font-medium">News</a>
+                <a href="#leadership" class="text-textDark font-medium">Activities</a>
+                <a href="#achievements" class="text-textDark font-medium">Awards</a>
+                <a href="#contact" class="text-googleBlue font-bold">Contact</a>
             </div>
         </div>
+    </nav>
 
-
-            
-        </section>
-        <section class="container" id="portfolio">
-            <div class="main-title">
-                <h2>My <span>Portfolio</span><span class="bg-text">My Work</span></h2>
+    <!-- Hero / Search Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-16">
+        <div class="flex flex-col items-center w-full max-w-2xl animate-fade-in">
+            <!-- Big Logo -->
+            <div class="text-[3.5rem] md:text-[5.5rem] leading-none mb-8 g-logo tracking-tighter select-none">
+                <span class="text-googleBlue">A</span><span class="text-googleRed">i</span><span class="text-googleYellow">s</span><span class="text-googleBlue">h</span><span class="text-googleGreen">i</span><span class="text-googleRed">k</span>
             </div>
-            
-            <div class="about-stats">
-                <h4 class="stat-title">My Skills</h4>
-                <div class="progress-bars">
-                    <div class="progress-bar">
-                        <p class="prog-title">Python</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="python"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Data Science</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="ds"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Machine Learning and AI</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="ml"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Computer Vision</p>
-                        <div class="progress-con">
-                            <p class="prog-text">100%</p>
-                            <div class="progress">
-                                <span class="cv"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Natural Language Processing</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="nlp"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Software Development</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="sd"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Flutter</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="flutter"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">HTML,CSS,JavaScript</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="html"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Django,Flask</p>
-                        <div class="progress-con">
-                            <p class="prog-text">95%</p>
-                            <div class="progress">
-                                <span class="django"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Google Cloud Platform + FireBase</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="gcp"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Microsoft Azure</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="azure"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Amazon Web Services</p>
-                        <div class="progress-con">
-                            <p class="prog-text">80%</p>
-                            <div class="progress">
-                                <span class="aws"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">C, C++, C#</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="c"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">JavaScript Frameworks</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="js"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Java</p>
-                        <div class="progress-con">
-                            <p class="prog-text">70%</p>
-                            <div class="progress">
-                                <span class="java"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Robot Operating System</p>
-                        <div class="progress-con">
-                            <p class="prog-text">85%</p>
-                            <div class="progress">
-                                <span class="ros"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Unity</p>
-                        <div class="progress-con">
-                            <p class="prog-text">65%</p>
-                            <div class="progress">
-                                <span class="unity"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <p class="prog-title">Golang</p>
-                        <div class="progress-con">
-                            <p class="prog-text">65%</p>
-                            <div class="progress">
-                                <span class="golang"></span>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Search Bar -->
+            <div class="w-full relative group shadow-search border border-transparent hover:shadow-md transition-shadow duration-200 bg-white rounded-full">
+                <div class="flex items-center px-5 py-3 md:py-3.5 border border-gray-200 rounded-full group-hover:border-transparent">
+                    <i class="fas fa-search text-gray-400 mr-4"></i>
+                    <input type="text" value="Tech Lead | Machine Learning Engineer | Clinical AI" readonly 
+                           class="w-full outline-none text-textDark text-lg font-normal bg-transparent cursor-default font-roboto truncate">
+                    <i class="fas fa-microphone text-googleBlue text-xl ml-4 cursor-pointer hover:opacity-80"></i>
                 </div>
-
-                
             </div>
-            <div class="btn-con">
-                <a href="./Aishik_Nagar_Resume.pdf" class="main-btn" download>
-                    <span class="btn-text">Download CV</span>
-                    <span class="btn-icon"><i class="fas fa-download"></i></span>
+
+            <!-- Buttons -->
+            <div class="mt-8 space-x-3 flex flex-wrap justify-center gap-y-3">
+                <a href="#projects" class="btn-google bg-gray-50 text-textDark hover:bg-gray-100 hover:shadow-sm hover:border-gray-300 border border-transparent px-6 py-2.5 rounded-md text-sm font-medium transition cursor-pointer">
+                    Aishik's Portfolio
+                </a>
+                <a href="./Aishik_Nagar_Resume.pdf" download class="btn-google bg-gray-50 text-textDark hover:bg-gray-100 hover:shadow-sm hover:border-gray-300 border border-transparent px-6 py-2.5 rounded-md text-sm font-medium transition cursor-pointer">
+                    Download CV
                 </a>
             </div>
-            <h4 class="stat-title">My Experience</h4>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2018 - 2022</p>
-                    <h5>Bachelor of Engineering <span> - <a href="https://www.ntu.edu.sg/">Nanyang Technological University, Singapore</a></span></h5>
-                    
-                        <p><strong>Nanayang Science and Engineering Scholar</strong></p>
-                        <br />
-                        <p>Specialization in Data intelligence and Software Engineering</p>
-                        <br />
-                        <p><strong>EEE Excellence Award Recipient</strong></p>
-                        <br />
-                        <p>President's Research Scholar</p>
-                    
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">Dec, 2022 - Present</p>
-                    <h5>Software Developement Engineer<span> - <a href="https://aics.asus.com/home/">ASUS Intelligent Cloud Services</a></span></h5>
-                    <p>
-                        Backend and AI Engineer building Healthcare systems at AICS.
-                    </p>
-                    <br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">Jul, 2022 - Nov, 2022</p>
-                    <h5>Algorithm Engineer<span> - <a href="https://careers.shopee.sg/about">Shopee, Singapore</a></span></h5>
-                    <p>
-                        Algorithm Engineer at Marketplace Intelligence and Data Division of the Data Science Department at Shopee HQ
-                    </p>
-                    <br />
-                    <p>Person In Charge of IC Anti Spoofing Projects for Shopee Malaysia. Designed and developed the API for Identity Verification in ShopeePay and SeaMoney</p>
-                    <br />
-                    <p>Developed techniques which improved data mining efficiency in unlabeled datasets from 10% to over 40%.</p>
-                    <br />
-                    <p>Implemented CNN architecture agnostic techniques such as RSG and LDAM-DRW to train Deep Learning models from heavily imbalanced datasets which improved the performance of the API models from 10% to over 90%</p>
-                    <br />
-                    <p>Applied CNN Condensing algorithms using PDE constraints which reduced storage and computation costs by over 60%</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2016 - 2017</p>
-                    <h5>High School<span> - The Heritage School, Kolkata</span></h5>
-                    <p>
-                        <strong>All India Rank 4</strong> in Indian National Board Examinations (ISC)
-                    </p>
-                    <br />
-                    <p>Cumulative Score of 98.75%</p>
-                    <br />
-                    <p>School Topper</p><br />
-                    <p>Awarded <strong>'Outstanding Student Personality'</strong> upon graduation</p><br />
-                    <p>School Vice Captain and leader of the school student council</p><br />
-                    <p>Head of Executive for 'Youthopia', the largest student organized fest of the state.</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2021 - 2022</p>
-                    <h5>Research Intern<span> - A*STAR Singapore</span></h5>
-                    <p>
-                        Worked in the <strong>Institute of Informatics Research (Visual Intelligence Department)</strong>
-                    </p><br />
-                    <p>Built a 3D simulation environment based on iGibson to generate training data for 3D Deep Learning.</p><br />
-                    <p>Worked on Object Detection and Human Segmentation Projects</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2020</p>
-                    <h5>Industry Project<span> - Aptiv Automobiles</span></h5>
-                    <p> Worked on the <strong>nuScenes Dataset for autonomous vehicles</strong> </p><br />
-                    <p> Worked on object detection using 3D point cloud and 2d rgb data</p><br />
-                    <p> Explored multimodal models for route prediction </p><br />
-                    <p> Mentored by Industry experts and researchers from NTU </p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2017 - present</p><br />
-                    <h5>Data Science Intern<span> - Shopee,Singapore</span></h5>
-                    <p> Used and improved on state-of-the-art deep learning models like yolo v5 for training and developing a <strong>custom general object detector service</strong></p><br />
-                    <p> Developed a deployment pipeline for Shopee's general detector service for both Pytorch and Onnx frameworks. Employed optimization techniques which increased efficiency by over 10 times from the previous version.</p><br />
-                    <p> The detector service is live on the Shopee platform and serving over <strong>100 million requests per day</strong> and set to be adopted for major features such as Image Search.</p><br />
-                    <p> Worked on <strong>Salient Object Detection</strong> and Image Segmentation and Image Segmentation using SOTA Deep Learning models U2Net and F3Net.</p><br />
-                    <p> Performed algorithmic imporvements on the model along with extensive image processing to develop the latest product segmentation service in Shopee.</p><br />
-                    <p> Developed the backend deployment and inference pipeline for the service, which is now live at Shopee.</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2019-2021</p><br />
-                    <h5>Technical Director<span> - IEEE NTU Student Branch</span></h5>
-                    <p> As the Ex-co member, organized workshops and bootcamps on topics like Data Science and web development </p><br />
-                    <p> Developed the IEEE website</p><br />
-                    <p> Introduced and supervised organizational reforms and events such as IEEE Techathlon and developing long-term projects. </p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2019-2021</p><br />
-                    <h5>Image Processing and 3D Intern<span> - Panasonic R&D Centre,Singapore</span></h5>
-                    <p> Worked on <strong>perception AI for autonomous vehicles</strong></p><br />
-                    <p> Used deep learning, ROS, image processing, computer vision, python, C++ and camera imaging theory</p><br />
-                    <p> Researched and implemented State-of-the-art AI Models for Face Detection, 3D+2D object detection, Parameterized t-SNE and statistical analysis among others to build an end-to-end software which was shipped to the clients.</p><br />
-                    <p> Wrote scripts for visualizing 3D detection results on 2D image and in birds-eye view, reprojecting data to ego-vehicle perspective, along with integration in ROS</p><br />
-                    <p> Worked with different types of sensors like LIDAR, pinhole, fisheye and GPS</p><br />
-                    <p> Worked on data collection, processing, analysis, modelling and inferencing.</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2019-2020</p><br />
-                    <h5>Trained and Developer<span> - Garage@EEE,NTU</span></h5>
-                    <p>Organized workshops on topics like web development. </p><br />
-                    <p>Developed the Garage@EEE website</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2020-2021</p><br />
-                    <h5>Chairperson<span> - iNTUition v7.0, NTU</span></h5>
-                    <p>Organized NTU's flagship hackathon</p><br />
-                    <p>Managed and supervised Tech, Logistics, Liaison, Business and Finance departments</p><br />
-                    <p>Developed and maintained <a href="https://intuition.ieeentu.com/">iNTUition v7.0 official website</a></p><br />
-                    <p>Developed and deployed an <strong>avatar-based virtual platform</strong> for the online event using Go, Angular, Redis and AWS. The platform was used by over 500 participants and companies like SAP, HP, Bigo, GovTech, IEEE and many others throughout the event</p><br />
-                    <p>Developed and deployed an Event Registration System with SSO functionality using Angular.js, MongoDB and Heroku</p><br />
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <p class="tl-duration">2019-2021</p><br />
-                    <h5>President's Research Scholar<span> - Nanyang Technological University, Singapore</span></h5>
-                    <p>Worked on hyper-parameter optimization of error-correcting neural networks </p><br />
-                    <p>Research focused on making neural networks robust to adversarial attacks using keras.</p><br />
-                </div>
+
+            <div class="mt-8 text-sm text-textGray font-roboto text-center">
+                Skills: <span class="text-googleBlue font-medium">Artificial Intelligence</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium">Software Engineering</span> &nbsp;•&nbsp; <span class="text-googleBlue font-medium">Data Science</span>
             </div>
-            <h4 class="stat-title">My Projects</h4>
-            <p class="port-text">
-                Here are some of my selected projects. Check out my <a href="https://github.com/AishikNagar" >github</a> to see all my projects! :D
-            </p>
-            <div class="portfolios">
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port1.png" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Geolytics.AI</h3>
-                        <p>An AI Enabled Risk Management Platform</p>
-                        <p>Top 3 in Google Hackfest Singapore!</p>
-                        <p>Finalist in Microsoft APAC Virtual Hackathon!</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/GeolyticsAI-frontend-GCP" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=3CAwD2ODnhA" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port2.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>DementiCare</h3>
-                        <p>A cross platform mobile app made to complement Dementia Caregiving.</p>
-                        <p>World Champion, Google Developer Solution Challenge</p>
-                        <p>National Gold Award, Techblazer Singapore</p>
-                        <p>Top 3, 15K Entrepreneurship Competition Signapore</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/DementiCare" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=Z2p56YCBvHY" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port14.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Project Celebi</h3>
-                        <p>A one stop platform for incentivising communities to improve local sustainability through gamification, information and collaboration.</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/projectCelebi" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=X0mU_Z3hpR4" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port3.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>iNTUition v7.0</h3>
-                        <p>The official website of iNTUition v7.0, NTU's flagship hackathon</p>
-                        <div class="icons">
-                            <a href="https://github.com/IEEENTU/iNTUitionv7.0" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="#" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port4.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>iNTUition Virtual Playground</h3>
-                        <p>A club penguin and minecraft inspired avatar based virtual playground used during iNTUition v7.0</p>
-                        <div class="icons">
-                            <a href="https://github.com/IEEENTU/playground" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=Aa_Vw5EnM44" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port5.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>TraveLog</h3>
-                        <p>A mobile app to record and remember travel experiences</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/TraveLog" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port6.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>PosiTweety</h3>
-                        <p>The one stop solution to anything and everything related to Social Good</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/PosiTweety" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=F9el0lAAWRY" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port7.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>CartPole-AI</h3>
-                        <p>An RL Agent which playes the CartPole game using policy gradients</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/CartPole-AI" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port8.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Stylize</h3>
-                        <p>A flask web app with art style-transfer, image editing and object detection functinality</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/Stylize" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port9.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>PokeCenter</h3>
-                        <p>A real-time chat room for all the Pokemon fans!</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/PokeCenter" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port10.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Sherlocked-VR</h3>
-                        <p>A virtual reality escape room game</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/Sherlocked-VR" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            <a href="https://www.youtube.com/watch?v=tvJSGV7zPiE" class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port11.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Craigslist-Clean</h3>
-                        <p>A minimalistic clone+scraper of craigslist, built in Django</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/Craigslist-clone" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port12.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Pong Browser AI</h3>
-                        <p>An AI agent which learns how to play while competing against the user, built in tensorflow.js</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/Pong-AI" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="image">
-                        <img src="img/port13.jpg" alt="">
-                    </div>
-                    <div class="hover-items">
-                        <h3>Edu Pic</h3>
-                        <p>A flask web app which detects objects and relays the science behind them.</p>
-                        <p> Top 7 in enlighteNUS Hackathon!</p>
-                        <div class="icons">
-                            <a href="https://github.com/AishikNagar/Edu-PIC" class="icon">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container" id="blogs">
-            <div class="blogs-content">
-                <div class="main-title">
-                    <h2>Media<span> Coverage</span><span class="bg-text">Publicity Blogs</span></h2>
-                </div>
-                <div class="blogs">
-                    <div class="blog">
-                        <!-- <img src="img/port6.jpg" alt=""> -->
-                        <iframe src="https://www.youtube.com/embed/Z2p56YCBvHY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.youtube.com/embed/Z2p56YCBvHY">DementiCare Google Solutions Challenge Live Demo</a>
-                            </h4>
-                            <p>
-                                Live Demo for Google's Solution Challenge, in which I emerged a winner. The video was seen live by thousands across the world and has over 45 thousand views as of now.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://developers.googleblog.com/2021/07/dsc-students-building-better-world.html" title="Google Developers Aishik Feature"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://developers.googleblog.com/2021/07/dsc-students-building-better-world.html">Featured on Google Developers Blog Post</a>
-                            </h4>
-                            <p>
-                                Google Developers Blog Post covers emerging and talented developers across the world, who are using Google Technologies to make a change.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <!-- <iframe src="https://www.ntu.edu.sg/eee/student-life/mr-nagar-aishik" title="NTU Coverage"></iframe> -->
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.ntu.edu.sg/eee/student-life/mr-nagar-aishik">Feature on NTU Website</a>
-                            </h4>
-                            <p>
-                                Nanayang Technological University coverage for my achievements and accolades.Check out their instagram coverage on my project <a href="https://www.instagram.com/p/CcsfT82vBT0/"><strong>by clicking here</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <!-- <img src="img/blog3.jpg" alt=""> -->
-                        <!-- <iframe src="https://www.linkedin.com/posts/googledevelopers_solution-challenge-demo-day-2021-project-activity-6841129558524219392-VBmg" title="Google LinkedIn Mention"></iframe> -->
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6837123571324596224" allowfullscreen="" title="Embedded post"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/googledevelopers_developerstudentclubs-activity-6837123571710476288-n7TA">Google Developers Linkedin Mention</a>
-                            </h4>
-                            <p>
-                                Google Linkedin mentioning my achievements in Google Developer Solutions Challenge
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <!-- <img src="img/port1.jpg" alt=""> -->
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6837894590100574208" allowfullscreen="" title="Embedded post"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/janisetan_developerstudentclubs-activity-6837894590536806400-3Ik8">Google Singapore Coverage</a>
-                            </h4>
-                            <p>
-                                Google Singapore and Google Startup Ecosystem Coverage on LinkedIn for winning Solution Challenge
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <!-- <img src="img/port3.jpg" alt=""> -->
-                        <iframe src="https://www.youtube.com/embed/EkqxQjshnwA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.youtube.com/embed/EkqxQjshnwA">Google La Kopi Talk</a>
-                            </h4>
-                            <p>
-                                Organized by Google, La Kopi @ Developers Space is a monthly open mic night for the developer community to learn, connect, and be inspired by each other. I spoke on Flutter and Firebase for Android App Development, which was streamed live on Youtube and viewed by hundreds of developers across South East Asia.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FGoogleStudents%2Fposts%2F10158817702695735&width=500&show_text=false&height=261&appId" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                         <div class="blog-text">
-                            <h4>
-                                <a href="https://www.facebook.com/GoogleStudents/photos/a.149797515734/10158817702175735/">Features on Google Students Socials(Twitter and Facebook)</a>
-                            </h4>
-                            <p>
-                                Google Students Official Handle Feature for winning Solution Challenge and building DementiCare. Find their Twitter Post <a href="https://twitter.com/googlestudents/status/1431359506101903361"><strong>by clicking here.</strong></a>
-                            </p>
-                        </div>
-                    </div>
+        </div>
+    </section>
 
-                    <div class="blog">
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6961030742478897152" height="839" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/hackerearth_microsoft-virtual-hackathon-2022-ugcPost-6961030742478897152-sN7I?utm_source=share&utm_medium=member_desktop">APAC Winner of Microsoft Hackathon - Microsoft Coverage</a>
-                            </h4>
-                            <p>
-                                Won the 1st Prize as well as the Prize for the Best use of Azure in the Microsoft Hackathon. Find their Winner Listing <a href="https://www.hackerearth.com/challenges/hackathon/microsoft-virtual-hackathon-2022/?utm_feeditemid=&utm_device=m&utm_term=&utm_source=google&utm_medium=paid&utm_campaign=&hsa_cam=17444159037&hsa_grp=&hsa_mt=&hsa_src=x&hsa_ad=&hsa_acc=8660149232&hsa_net=adwords&hsa_kw=&hsa_tgt=&hsa_ver=3&utm_feeditemid=&utm_device=m&utm_term=&utm_source=adword&utm_medium=ppc&utm_campaign=%5BREC%5D+PMax+-+India+Assessment&hsa_cam=17444159037&hsa_grp=&hsa_mt=&hsa_src=x&hsa_ad=&hsa_acc=8660149232&hsa_net=adwords&hsa_kw=&hsa_tgt=&hsa_ver=3&gclid=CjwKCAjwk_WVBhBZEiwAUHQCmS3NqVa2mZuQ2YucL32Ep94C3WFAhOAAF5wi9h_pMB6vNMvAErM52BoCFIEQAvD_BwE">by <strong> clicking here.</strong></a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="blog">
-                        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6952906256965664768" height="1086" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/ntueee_naturaldisaster-riskmanagement-ntueee-activity-6952906258198777856-Kgqv?utm_source=share&utm_medium=member_desktop">APAC Winner of Microsoft Hackathon - NTU Coverage</a>
-                            </h4>
-                            <p>
-                                NTU EEE media coverage for winning the 1st Prize as well as the Prize for the Best use of Azure in the Microsoft Hackathon. Find their Instagram post by <a href="https://www.instagram.com/p/Cfyt9y1PLjF/?utm_source=ig_web_copy_link"> <strong> by clicking here.</strong></a>. NTU main account also covered the win on their LinkedIn, which can be <a href="https://www.linkedin.com/posts/ntusg_ntusg-ntusgstudents-competition-activity-6951719593505624064-klkI?utm_source=share&utm_medium=member_desktop"><strong>found here</strong></a>, as well as Twitter, which can be  <a href="https://twitter.com/NTUsg/status/1545958560051253248"><strong> found here</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="blog">
-                        <img src="img/blog3.png" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://techblazerawards.sg/Past-Winners/2021-Winners">SGTech Techblazer Website</a>
-                            </h4>
-                            <p>
-                                Featured on the Techblazer website for winning the Gold Prize in Singapore's National Tech Award in 2021. TechBlazer Awards were organized by SGTech, Singapore's National organization for tech development, and IMDA Singapore. Find the media coverage for the awards on Facebook by <a href="https://www.facebook.com/sgtechsocial/posts/5062360043826767"><strong>clicking here for SGTech Coverage</strong></a>, <a href="https://www.facebook.com/TechblazerAwards/posts/1219157225154689"><strong>clicking here for TechBlazer Award Coverage</strong></a> and <a href="https://www.facebook.com/123jumpstart/posts/4791964647549329"><strong> for SGTech 123Jump Start Startup Organization coverage.</strong></a> The Linkedin Coverage can be found by <a href="https://www.linkedin.com/feed/update/urn:li:activity:6891328660297674752"><strong>clicking here </strong></a> and <a href="https://www.linkedin.com/feed/update/urn:li:activity:6891328668984066048"> <strong>here.</strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog4.png" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://sgtechsingapre-my.sharepoint.com/personal/sgtech_sgtech_org_sg/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsgtech%5Fsgtech%5Forg%5Fsg%2FDocuments%2FFrom%20G%20Suite%20Drive%2F%24%24Intranet%2FEvent%20%26%20Operations%2FEvents%2FAwards%2F2021%2FTBA%202021%20Marketing%20%26%20Comms%2FTBA%20Ad%5FMedia%20Coverage%2FCATB%2DMCI%2DIMDA%2D2021%2D005%2DTechblazerAwards2021%20HPFC%20Print%20Ad%2Epdf&parent=%2Fpersonal%2Fsgtech%5Fsgtech%5Forg%5Fsg%2FDocuments%2FFrom%20G%20Suite%20Drive%2F%24%24Intranet%2FEvent%20%26%20Operations%2FEvents%2FAwards%2F2021%2FTBA%202021%20Marketing%20%26%20Comms%2FTBA%20Ad%5FMedia%20Coverage&ga=1">Straits Times Feature</a>
-                            </h4>
-                            <p>
-                                Featured on Straits Times Global Section for Winning the Gold Award for Techblazer Awards Singapore. 
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="blog">
-                        <iframe src="https://sg.radiocut.fm/radiostation/cna/listen/2022/01/25/09/00/00/" title="FM Coverage"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://sg.radiocut.fm/radiostation/cna/listen/2022/01/25/09/00/00/">CNA Radio Coverage</a>
-                            </h4>
-                            <p>
-                                CNA FM Radio covered my development of DementiCare and win in TechBlazer Awards. 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://www.biz360.tv/post/winners-announced-imda-sgtech-techblazer-awards-2021" title="biz360 article"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.biz360.tv/post/winners-announced-imda-sgtech-techblazer-awards-2021">Biz360.TV News Coverage</a> 
-                            </h4>
-                            <p>
-                                News coverage for Techblazer Winners on Biz360 Channel.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://www.8world.com/singapore/techblazer-awards-1709076" title="News coverage"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.8world.com/singapore/techblazer-awards-1709076">8World News Article on Techblazer win</a>
-                            </h4>
-                            <p>
-                                8world Delivers Chinese news article on my win in Techblazer Awards for DementiCare.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/ntueee_ntueee-enlightenus-ntueee-activity-6974027332776861696-RJYr?utm_source=share&utm_medium=member_desktop">NTU Koh Boon Hwee Scholar's Award Winner</a>
-                            </h4>
-                            <p>
-                                Featured on the NTU socials for being the Winner of the Koh Boon Hwee Scholar's Awards (University Scholar's Award). Also featured on their official website, which can be <a href="https://www.ntu.edu.sg/convocation/about-convocation/medals-and-prizes/koh-boon-hwee-scholars-award"><strong>found here</strong></a>,<a href="https://www.linkedin.com/posts/ntueee_ntusg-ntueee-ntusgclassof2022-activity-6955504771298471936-r-sR?utm_source=share&utm_medium=member_desktop"><strong>NTU LinkedIn</strong></a>, as well as <a href="https://www.instagram.com/p/CcsfT82vBT0/?igshid=MDJmNzVkMjY="><strong> NTU EEE instagram</strong></a>.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/ntusg_ntusg-machinelearning-verticalgreenery-activity-6941396886733889536-ijtq?utm_source=share&utm_medium=member_desktop">Google Hackfest Top 3</a>
-                            </h4>
-                            <p>
-                                Featured on the NTU socials for being the Top 3 in Google Hackfest, Singapore.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.instagram.com/p/CglhVkglszn/?igshid=ZmVmZTY5ZGE=">NTU SCSE Features on Socials</a>
-                            </h4>
-                            <p>
-                                Featured on the NTU School of Computer Science and Engineering for Winning the Microsoft Hackathon.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.ntu.edu.sg/scse/news-events/news/detail/ug-students-in-google-solutions-challenge-top-10">NTU Socials for Google Developer Solution Challenge</a>
-                            </h4>
-                            <p>
-                                NTU coverage on their website and social media for being the first ever team from Singapore to reach the World Finals and win the Google Developer Solution Challenge. Find their instagram post by <a href="https://www.instagram.com/p/CUohuHYBiqz/"><strong>clicking here</strong></a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.instagram.com/p/CcsfT82vBT0/?igshid=MDJmNzVkMjY=">NTU Socials for Tech Innovation</a>
-                            </h4>
-                            <p>
-                                Featured on NTU Instagram page to attract and inspire students to innovate@NTU
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="blog">
-                        <img src="img/blog-grab.jpeg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://grabhackforgood.hackerearth.com/">Grab HackForGood Finalist Mention</a>
-                            </h4>
-                            <p>
-                                Feature on Grab Hack for good competition website as a Global Top 10 Finalist. 
-                            </p>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.ntu.edu.sg/scse/news-events/news/detail/champions---techblazer-awards-2021">NTU Socials for Techblazer Awards</a>
-                            </h4>
-                            <p>
-                                NTU coverage on their website and social media for winning the Gold Award in Techblazer Awards.Find their Instagram post covering this by <a href="https://www.instagram.com/p/CZQdbIMFCgy/"><strong> clicking here </strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <img src="img/blog2.jpg" alt="">
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.linkedin.com/posts/ntusg_ntusg-machinelearning-verticalgreenery-activity-6941396886733889536-ijtq?utm_source=linkedin_share&utm_medium=member_desktop_web">NTU Coverage for Google Hackfest</a>
-                            </h4>
-                            <p>
-                                NTU coverage on their website and social media for coming Top 3 in Google HackFest.Find their Instagram post covering this by <a href="https://www.instagram.com/p/Ceqou28vCXk/"><strong>clicking here</strong></a> and the LinkedIn post by <a href="https://www.linkedin.com/posts/ntusg_ntusg-machinelearning-verticalgreenery-activity-6941396886733889536-ijtq?utm_source=linkedin_share&utm_medium=member_desktop_web"><strong> clicking here </strong></a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FNTUsg%2Fposts%2F4799076663464807&show_text=false&width=500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.8world.com/singapore/techblazer-awards-1709076">15K Entrepreneurship competition Top 3</a>
-                            </h4>
-                            <p>
-                                Media coverage for placing top 3 in the 15K Entrepreneurship Competition, Singapore. Find the related Facebook post by NTUitive <a href="https://m.facebook.com/ntuitive.sg/photos/a.852675881469488/6446503865419967/"><strong> by clicking here </strong></a> and the Tweet by Official NTU account <a href="https://twitter.com/ntusg/status/1461971168143937538"><strong>by clicking here </strong></a>. Their Instagram post can also be found <a href="https://www.instagram.com/p/CWfknEhvhRd/?utm_source=ig_web_copy_link"><strong>by clicking here </strong></a>.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <iframe src="https://www.youtube.com/embed/ey8sePPPLlg?start=33664" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="blog-text">
-                            <h4>
-                                <a href="https://www.youtube.com/embed/ey8sePPPLlg?start=33664">iNTUition v7.0 Keynote and Presentations</a>
-                            </h4>
-                            <p>
-                                I chaired the iNTUition v7.0 Hackathon, where I led the diferent departments and over 45 student volunteers for the overall working of the hackathon. My closing keynote of the hackathon is shown here.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container contact" id="contact">
-            <div class="contact-container">
-                <div class="main-title">
-                    <h2>Contact <span>Me</span><span class="bg-text">Contact</span></h2>
-                </div>
-                <div class="contact-content-con">
-                    <div class="left-contact">
-                        <h4>Contact me here</h4>
-                        <p>
-                            Hit me up to play some games, discuss interesting topics or to buy me coffee!
-                        </p>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Location</span>
-                                </div>
-                                <p>
-                                    : Singapore
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </div>
-                                <p>
-                                    <span>: aishiknagar@gmail.com</span>
-                                </p>
-                            </div>
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Education</span>
-                                </div>
-                                <p>
-                                    <span>: Nanyang Technological University, Singapore</span>
-                                </p>
-                            </div>
-                            <!-- <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                    <span>Mobile Number</span>
-                                </div>
-                                <p>
-                                    <span>: 07522670617</span>
-                                </p>
-                            </div> -->
-                            <div class="contact-item">
-                                <div class="icon">
-                                    <i class="fas fa-globe-africa"></i>
-                                    <span>Languages</span>
-                                </div>
-                                <p>
-                                    <span>: English, Hindi, Some degree of local Indian Dialects</span>
-                                </p>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="btn-con">
-                            <a href="./Aishik_Nagar_Resume.pdf" class="main-btn" download>
-                                <span class="btn-text">Download CV</span>
-                                <span class="btn-icon"><i class="fas fa-download"></i></span>
-                            </a>
-                        </div>
-                        <br />
-                        <div class="contact-icons">
-                            <div class="contact-icon">
-                                <a href="https://www.linkedin.com/in/aishik-nagar/" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://twitter.com/aishiknagar" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://github.com/AishikNagar" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCrtdEDLSUtedashFmE_4WVA/videos" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <div class="text-sm text-textGray mb-3 font-roboto">About 1 result (0.42 seconds)</div>
             
-        </section>
-    </main>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Left Content -->
+                <div class="lg:w-2/3">
+                    <h2 class="text-2xl text-linkBlue hover:underline cursor-pointer mb-1"><a href="#">Aishik Nagar - Tech Lead & Machine Learning Engineer</a></h2>
+                    <div class="text-green-700 text-sm mb-4 font-roboto">https://aishiknagar.com › about</div>
+                    
+                    <p class="text-textDark mb-4 leading-relaxed font-roboto">
+                        I am a <strong>Tech Lead and Machine Learning Engineer</strong> at <strong>ASUS Global (AICS)</strong>, leading the R&D of Clinical AI Assistant systems. My work focuses on Agentic LLMs, Generative AI, and building scalable healthcare solutions serving thousands of patients in dozens of hospitals.
+                        I also conduct independent research at the intersection of cognitive and embodied AI, multimodality, reasoning, mechanistic interpretability and clinical AI in my free time :D
+                    </p>
+                    
+                    <p class="text-textGray mb-6 leading-relaxed font-roboto">
+                        I graduated with a Bachelor of Engineering (EEE) from <strong>Nanyang Technological University</strong> as a Nanyang Science and Engineering Scholar. I have a strong track record in AI research, winning global competitions like the Google Solution Challenge and Microsoft Hackathon.
+                    </p>
 
-    
+                    <!-- Skills Chips -->
+                    <h3 class="text-lg font-medium text-textDark mb-3">Skills & Expertise</h3>
+                    <div class="flex flex-wrap gap-2 mb-8 font-roboto">
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Agentic LLMs</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Generative AI</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Model Post-Training</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Model Inference</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Clinical AI</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Mechanistic Interpretability</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Python</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">TensorFlow</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">PyTorch</span>
+                        <span class="px-3 py-1 bg-blue-50 text-googleBlue border border-blue-100 rounded-full text-sm hover:bg-blue-100 transition cursor-pointer">Keras</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">NVIDIA Triton</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">vLLM</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">FastAPI</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">Hugging Face</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">LangChain</span>
+                        <span class="px-3 py-1 bg-green-50 text-googleGreen border border-green-100 rounded-full text-sm hover:bg-green-100 transition cursor-pointer">Langgraph</span>
+                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-100 rounded-full text-sm hover:bg-yellow-100 transition cursor-pointer">GCP</span>
+                        <span class="px-3 py-1 bg-yellow-50 text-yellow-700 border border-yellow-100 rounded-full text-sm hover:bg-yellow-100 transition cursor-pointer">Azure</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">Kubernetes</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">Docker</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">Helm</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">JavaScript</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">TypeScript</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">React</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">SQL</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">NoSQL</span>
+                        <span class="px-3 py-1 bg-gray-100 text-textGray border border-gray-200 rounded-full text-sm hover:bg-gray-200 transition cursor-pointer">Flutter</span>
+                    </div>
 
-    <div class="controls">
-        <div class="control active-btn" data-id="home" >
-            <i class="fas fa-home"></i>
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 font-roboto">
+                        <div class="p-4 border border-gray-200 rounded-lg text-center hover:shadow-md transition">
+                            <div class="text-2xl font-bold text-textDark">300M+</div>
+                            <div class="text-xs text-textGray uppercase mt-1">Requests served by my services/Day</div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg text-center hover:shadow-md transition">
+                            <div class="text-2xl font-bold text-textDark">3+</div>
+                            <div class="text-xs text-textGray uppercase mt-1">Years Exp</div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg text-center hover:shadow-md transition">
+                            <div class="text-2xl font-bold text-textDark">30+</div>
+                            <div class="text-xs text-textGray uppercase mt-1">Projects</div>
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg text-center hover:shadow-md transition">
+                            <div class="text-2xl font-bold text-textDark">5</div>
+                            <div class="text-xs text-textGray uppercase mt-1">Published papers in top ML conferences</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Knowledge Panel -->
+                <div class="lg:w-1/3 font-roboto">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <!-- Map/Image Header -->
+                        <div class="h-40 bg-gray-100 relative">
+                            <!-- Ensure img/me.JPG is in the folder -->
+                            <img src="img/me.JPG" alt="Aishik Nagar" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4">
+                            <h2 class="text-2xl font-normal text-textDark mb-1 font-sans">Aishik Nagar</h2>
+                            <p class="text-sm text-textGray mb-4">Tech Lead & Machine Learning Engineer</p>
+                            
+                            <p class="text-sm text-textDark mb-4 leading-relaxed">
+                                Your friendly neighbourhood engineer.
+                            </p>
+
+                            <div class="space-y-3 text-sm">
+                                <div class="flex border-b border-gray-100 pb-2">
+                                    <span class="font-bold w-24 text-textDark">Born:</span>
+                                    <span class="text-linkBlue">15-Jul-2000</span>
+                                </div>
+                                <div class="flex border-b border-gray-100 pb-2">
+                                    <span class="font-bold w-24 text-textDark">Education:</span>
+                                    <span class="text-linkBlue">Nanyang Technological University</span>
+                                </div>
+                                <div class="flex border-b border-gray-100 pb-2">
+                                    <span class="font-bold w-24 text-textDark">Current:</span>
+                                    <span class="text-textGray">ASUS Global (AICS)</span>
+                                </div>
+                                <div class="flex items-center pt-2 gap-4 text-xl text-textGray">
+                                    <a href="https://github.com/AishikNagar" class="hover:text-textDark"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/aishik-nagar/" class="hover:text-linkBlue"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://twitter.com/aishiknagar" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://scholar.google.com/citations?user=934q_A8AAAAJ&hl=en" class="hover:text-googleBlue"><i class="fas fa-graduation-cap"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="about">
-            <i class="fas fa-user"></i>
+    </section>
+
+    <!-- Experience (Google Career Style) -->
+    <section id="experience" class="py-16 bg-googleGray">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="fas fa-briefcase text-googleBlue"></i> Experience
+            </h2>
+
+            <div class="space-y-4 font-roboto">
+                <!-- Current Role -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Tech Lead, Machine Learning Engineer</h3>
+                            <div class="text-textDark font-medium">ASUS Global (AICS)</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Jan 2024 - Present</span>
+                    </div>
+                    <div class="text-sm text-textGray leading-relaxed">
+                        <p class="mb-2"><strong>ASUS Intelligent Cloud Services (AICS) is ASUS Global's moonshot division for Biomedical and Healthcare AI Solutions.</strong></p>
+                        <ul class="list-disc ml-4 space-y-1">
+                            <li><a href="https://aics.asus.com/healthcare-ai-solutions-en/">ASUS Intelligent Cloud Services (AICS)</a> is ASUS Global’s moonshot division for Biomedical and Healthcare AI Solutions.</li>
+                            <li>Leading the team of 5 engineers for R&D of the Clinical AI Assistant system, with features like Clinical Chat, Note Drafting, Clinical Reasoning, Medical Code Recommendation, and Anomaly Detection through finetuned LLMs and Agentic AI. Integrated CAA into Taipei Veterans General Hospital with 90%+ positive feedback in clinical testing.</li>
+                            <li>Developed new datasets, evaluation and reward functions and training recipes for reinforcement learning based online training of models in hospital settings for clinical reasoning, follow-up and intervention based on partially observable patient signals. Improved relative performance of small models ( 7B parameters) by 54% and outperformed large models such as GPT o3 and GPT 5 on clinical reasoning tasks.</li>
+                            <li>Invented a novel summarisation framework, outperforming State-of-the-Art by 6x in clinical preference.</li>
+                            <li>Built Developer Copilot Systems for Internal and Third Party developers, using Agentic LLMs to outperform State-of-the-Art Implementations for our task by over 15%, with 25% effective productivity gain and 11% code accuracy gain.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Role ASUS -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Software Development Engineer</h3>
+                            <div class="text-textDark font-medium">ASUS Global (AICS)</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Dec 2022 - Jan 2024</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Worked in the AI systems team to build AI-first Hospital Information Sytems (xHIS) in Taiwan and Singapore, serving 20+ hospitals and helping thousands of patients in consultation.</li>
+                        <li>Led projects for Medical AI SaaS services: 45% latency and 75% memory usage reduction for medical search and prediction (ICD, CPOE, Drug etc.). Improved search ranking algorithms to achieve 95%+ clinician satisfaction.</li>
+                        <li>Developed services including Hospital IT Debugging Support Bot, ICD Code Prediction, remote doctor PC debugging, health check mechanisms and dozens of hospital requested features across AI , Backend, Frontend and Telemetry teams.</li>
+                    </ul>
+                </div>
+
+                <!-- Shopee Role -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Algorithm Engineer</h3>
+                            <div class="text-textDark font-medium">Shopee, Singapore</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Jul 2022 - Dec 2022</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Shopee (NYSE: SE) is the largest eCommerce platform in Southeast Asia and Taiwan.</li>
+                        <li>Led Anti Spoofing Projects for Malaysia; developed Identity Verification API for ShopeePay and SeaMoney, used by millions of customers in Malaysia.</li>
+                        <li>Enhanced data mining efficiency in unlabeled datasets from 10% to 40%.</li>
+                        <li>Implemented CNN techniques for handling long-tailed imbalanced datasets using architecture agnostic techniques like RSG and LDAM-DRW, boosting model performance by 70% on internal benchmarks.</li>
+                        <li>Applied CNN Condensing with PDE constraints, reducing storage and computation costs by 60%.</li>
+                    </ul>
+                </div>
+
+                <!-- A*STAR -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Research Intern</h3>
+                            <div class="text-textDark font-medium">A*STAR Singapore (Visual Intelligence Dept)</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Jun 2021 - Jan 2022</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Researched on 3D Deep Learning and built a 3D simulation environment based on iGibson for generating synthetic training data for 3D Deep Learning.</li>
+                        <li>Developed Deep Learning systems for Human Segmentation and Object Detection.</li>
+                    </ul>
+                </div>
+
+                <!-- Aptiv -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Industry Project</h3>
+                            <div class="text-textDark font-medium">Aptiv Automobiles</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Jun 2020 - Dec 2020</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Worked on the nuScenes Dataset for autonomous vehicles.</li>
+                        <li>Worked on object detection using 3D point cloud and 2D RGB data.</li>
+                        <li>Explored multimodal models for route prediction.</li>
+                    </ul>
+                </div>
+
+                <!-- Shopee Intern -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Data Science Intern</h3>
+                            <div class="text-textDark font-medium">Shopee, Singapore</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">May 2021 - Aug 2021</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Worked on Salient Object Detection and Image Segmentation using SOTA Deep Learning models U2Net and F3Net.</li>
+                        <li>Performed algorithmic improvements on the model along with extensive image processing to develop the latest product segmentation service in Shopee.</li>
+                        <li>Used and improved on state-of-the-art deep learning models like YOLOv5 for training and developing a custom general object detector service.</li>
+                        <li>Optimized core image processing processes such as non max suppression implementation on GPU to avoid CPU offload bottlenecks, and optimized alpha matting for better image segmentation.</li>
+                        <li>Engineered inference and deployment optimizations pipelines, increasing efficiency by 10x; serving 100M+ daily requests.</li>
+                    </ul>
+                </div>
+
+                <!-- Panasonic -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-lg font-medium text-linkBlue">Image Processing and AI Intern</h3>
+                            <div class="text-textDark font-medium">Panasonic R&D Centre, Singapore</div>
+                        </div>
+                        <span class="text-sm text-textGray bg-gray-100 px-2 py-1 rounded">Jun 2020 - Dec 2020</span>
+                    </div>
+                    <ul class="list-disc ml-4 text-sm text-textGray space-y-1">
+                        <li>Developed Perception AI for autonomous vehicles used in Panasonic ADAS systems.</li>
+                        <li>Researched face recognition, monocular 3D object detection and sensor fusion algorithms (LIDAR, pinhole, fisheye, GPS, etc.). Developed end-to-end sensor management, data collection and visualization modules for use in the vehicle.</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="fas fa-graduation-cap text-googleBlue"></i> Education
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 font-roboto">
+                <div class="relative pl-6 border-l-4 border-googleBlue">
+                    <div class="flex justify-between items-start mb-1 flex-wrap">
+                        <h4 class="text-lg font-bold text-textDark">Nanyang Technological University</h4>
+                        <span class="text-xs font-bold text-googleBlue bg-blue-50 px-2 py-1 rounded">2018 - 2022</span>
+                    </div>
+                    <p class="text-sm text-textGray font-medium mb-3">Bachelor of Engineering (Electrical & Electronics)</p>
+                    <ul class="space-y-2 text-sm text-textGray">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-star text-googleYellow text-xs mt-1"></i>
+                            <span><strong>Nanyang Science and Engineering Scholar:</strong> 100% Scholarship for Undergraduate Studies.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-medal text-googleBlue text-xs mt-1"></i>
+                            <span><strong>University Scholars Gold Medal (Koh Boon Hwee Scholars Award):</strong> Awarded to 8 out of 10,000+ students in cohort.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-trophy text-googleRed text-xs mt-1"></i>
+                            <span><strong>NTU EEE Excellence Award:</strong> Awarded to 4 out of 750 students in Class of 2022.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative pl-6 border-l-4 border-googleRed">
+                    <div class="flex justify-between items-start mb-1 flex-wrap">
+                        <h4 class="text-lg font-bold text-textDark">The Heritage School</h4>
+                        <span class="text-xs font-bold text-googleRed bg-red-50 px-2 py-1 rounded">2016 - 2018</span>
+                    </div>
+                    <p class="text-sm text-textGray font-medium mb-3">Indian School Certificate (ISC)</p>
+                    <ul class="space-y-2 text-sm text-textGray">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-award text-googleGreen text-xs mt-1"></i>
+                            <span><strong>All India Rank 4:</strong> 98.75% (School Topper) in National Boards.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-certificate text-textGray text-xs mt-1"></i>
+                            <span><strong>INSPIRE Scholarship:</strong> By Central Govt. of India for top 1% performance.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-user-graduate text-googleBlue text-xs mt-1"></i>
+                            <span><strong>Outstanding Student Personality Award:</strong> Upon Graduation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
+    </section>
+
+    <!-- Google Scholar Section (Data Driven) -->
+    <section id="publications" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-6 flex items-center gap-2">
+                <i class="fas fa-book-open-reader text-googleBlue"></i> Publications
+                <span class="text-sm text-textGray font-normal ml-2">(Google Scholar)</span>
+            </h2>
+            <div id="scholar-content" class="space-y-6 font-roboto">
+                <!-- Content injected via JS -->
+            </div>
+            <div class="pt-6">
+                <a href="https://scholar.google.com/citations?user=934q_A8AAAAJ&hl=en" target="_blank" class="text-linkBlue font-medium hover:underline flex items-center gap-1">
+                    View all publications on Google Scholar <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+            </div>
         </div>
-        <div class="control" data-id="contact">
-            <i class="fas fa-envelope-open"></i>
+    </section>
+
+    <!-- Projects (Data Driven) -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="fas fa-folder text-googleYellow"></i> Projects
+            </h2>
+            <div id="projects-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-roboto">
+                <!-- Content injected via JS -->
+            </div>
         </div>
-    </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>
-    <script src="app.js"></script>
+    </section>
+
+    <!-- News / Media Coverage (Data Driven) -->
+    <section id="media" class="py-16 bg-googleGray">
+        <div class="max-w-[1200px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="far fa-newspaper text-googleRed"></i> In the News
+            </h2>
+            <div id="media-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Co-Curriculars -->
+    <section id="leadership" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="fas fa-users text-googleGreen"></i> Leadership & Activities
+            </h2>
+
+            <div class="space-y-6 font-roboto">
+                
+                <div class="border-l-4 border-googleBlue pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Founder, Geolytics.AI</h3>
+                    <p class="text-sm text-textGray mb-1">Jun 2021 - Present</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Developed and Deployed and AI enabled Natural Disaster Risk Management Platform. Worked with organizations such as National Disaster Management Authority of India and Earth Observatory of Singapore to understand gaps in technology for disaster relief. Engineered sophisticated AI pipelines for Damage Assessment of affected areas directly from satellite imagery.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-googleRed pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Founder, DementiCare</h3>
+                    <p class="text-sm text-textGray mb-1">Jun 2019 - Aug 2021</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Built a cross-platform app to assist dementia caregivers. Collaborated with nursing homes in Singapore. Won global Google Solution Challenge 2021 and many other accolades.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-googleYellow pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Chairperson, iNTUition v7.0</h3>
+                    <p class="text-sm text-textGray mb-1">Aug 2020 - May 2021</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Led a team of 45+ to organize NTU's largest hackathon. Expanded reach to international participants. Developed virtual venue platform handling 500+ concurrent users and sponsors like SAP, HP, Bigo, GovTech.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-googleGreen pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Technical Director, IEEE NTU Student Branch</h3>
+                    <p class="text-sm text-textGray mb-1">Aug 2019 - Aug 2021</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Spearheaded technical workshops and hackathons (IEEE Techathlon). Managed internal technical infrastructure and website.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-gray-400 pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Events Director, Google Developer Student Club NTU</h3>
+                    <p class="text-sm text-textGray mb-1">Aug 2021 - May 2022</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Organized events to enable students to build impactful products using Google technologies.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-gray-400 pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">Trainer and Developer, Garage@EEE</h3>
+                    <p class="text-sm text-textGray mb-1">2019 - 2020</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Organized workshops on topics like web development. Developed the Garage@EEE website.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-gray-400 pl-4 py-1">
+                    <h3 class="text-lg font-bold text-textDark">School Vice Captain, The Heritage School</h3>
+                    <p class="text-sm text-textGray mb-1">2017 - 2018</p>
+                    <p class="text-sm text-textGray leading-relaxed">
+                        Led the Student Council of 300+ members.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards / Achievements (Data Driven) -->
+    <section id="achievements" class="py-16 bg-googleGray">
+        <div class="max-w-[1000px] mx-auto px-4">
+            <h2 class="text-2xl text-textDark font-normal mb-8 flex items-center gap-2">
+                <i class="fas fa-trophy text-googleYellow"></i> Awards & Achievements
+            </h2>
+            <div id="awards-content" class="bg-white rounded-xl shadow-sm border border-gray-200 divide-y divide-gray-100 font-roboto">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <section id="contact" class="py-12 bg-white border-t border-gray-200">
+        <div class="max-w-[800px] mx-auto text-center px-4 font-roboto">
+            <h2 class="text-2xl text-textDark mb-4">Want to collaborate?</h2>
+            <p class="text-textGray mb-8">Hit me up to play some games, collaborate on research, or buy me a coffee!</p>
+            
+            <a href="mailto:aishiknagar@gmail.com" class="inline-block bg-googleBlue text-white px-8 py-3 rounded-md font-medium shadow-md hover:bg-blue-700 hover:shadow-lg transition">
+                Send Email
+            </a>
+
+            <div class="flex justify-center space-x-6 mt-10 text-2xl text-textGray">
+                <a href="https://www.linkedin.com/in/aishik-nagar/" class="hover:text-linkBlue"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/aishiknagar" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/AishikNagar" class="hover:text-textDark"><i class="fab fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=934q_A8AAAAJ&hl=en" class="hover:text-googleBlue"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+            
+            <div class="mt-10 text-sm text-gray-400">
+                &copy; 2025 Aishik Nagar.
+            </div>
+        </div>
+    </section>
+
+    <!-- Data & Scripts -->
+    <script>
+        // --- 1. DATA ARRAYS (Easy to Update) ---
+
+        const projectsData = [
+            {
+                title: "Geolytics.AI",
+                desc: "Developed an AI Enabled platform for Natural Disaster Risk Management. Discussed with National Disaster Management Authority of India and the Earth Observatory of Singapore to deploy scalable and groundbreaking AI pipelines for automating Disaster Management Procedures.",
+                img: "img/port1.png",
+                tag: "Top 3 Google Hackfest",
+                github: "https://github.com/AishikNagar/GeolyticsAI-frontend-GCP",
+                demo: "https://www.youtube.com/watch?v=3CAwD2ODnhA"
+            },
+            {
+                title: "DementiCare",
+                desc: "Built a mobile application to complement caregiving for dementia patients from scratch. Talked to organizations like Allium healthCare, Jamiyah Nursing home and ADA Singapore to understand their requirements and Engineered a first-of-its-kind scalable software.",
+                img: "img/port2.jpg",
+                tag: "World Champion",
+                github: "https://github.com/AishikNagar/DementiCare",
+                demo: "https://www.youtube.com/watch?v=Z2p56YCBvHY"
+            },
+            {
+                title: "Project Celebi",
+                desc: "A one stop platform for incentivising communities to improve local sustainability through gamification, information and collaboration.",
+                img: "img/port14.jpg",
+                tag: "Sustainability",
+                github: "https://github.com/AishikNagar/projectCelebi",
+                demo: "https://www.youtube.com/watch?v=X0mU_Z3hpR4"
+            },
+            {
+                title: "iNTUition v7.0",
+                desc: "The official website of iNTUition v7.0, NTU's flagship hackathon. Managed tech and built platform for 500+ users.",
+                img: "img/port3.jpg",
+                tag: "Web Dev",
+                github: "https://github.com/IEEENTU/iNTUitionv7.0",
+                demo: "#"
+            },
+            {
+                title: "iNTUition Virtual Playground",
+                desc: "A club penguin and minecraft inspired avatar based virtual playground used during iNTUition v7.0.",
+                img: "img/port4.jpg",
+                tag: "Game Dev",
+                github: "https://github.com/IEEENTU/playground",
+                demo: "https://www.youtube.com/watch?v=Aa_Vw5EnM44"
+            },
+            {
+                title: "TraveLog",
+                desc: "A mobile app to record and remember travel experiences.",
+                img: "img/port5.jpg",
+                tag: "Mobile App",
+                github: "https://github.com/AishikNagar/TraveLog",
+                demo: ""
+            },
+            {
+                title: "PosiTweety",
+                desc: "The one stop solution to anything and everything related to Social Good.",
+                img: "img/port6.jpg",
+                tag: "Social Good",
+                github: "https://github.com/AishikNagar/PosiTweety",
+                demo: "https://www.youtube.com/watch?v=F9el0lAAWRY"
+            },
+            {
+                title: "CartPole-AI",
+                desc: "An RL Agent which plays the CartPole game using policy gradients.",
+                img: "img/port7.jpg",
+                tag: "Reinforcement Learning",
+                github: "https://github.com/AishikNagar/CartPole-AI",
+                demo: ""
+            },
+            {
+                title: "Stylize",
+                desc: "A flask web app with art style-transfer, image editing and object detection functionality.",
+                img: "img/port8.jpg",
+                tag: "Computer Vision",
+                github: "https://github.com/AishikNagar/Stylize",
+                demo: ""
+            },
+            {
+                title: "PokeCenter",
+                desc: "A real-time chat room for all the Pokemon fans!",
+                img: "img/port9.jpg",
+                tag: "Real-time Chat",
+                github: "https://github.com/AishikNagar/PokeCenter",
+                demo: ""
+            },
+            {
+                title: "Sherlocked-VR",
+                desc: "A virtual reality escape room game.",
+                img: "img/port10.jpg",
+                tag: "VR Game",
+                github: "https://github.com/AishikNagar/Sherlocked-VR",
+                demo: "https://www.youtube.com/watch?v=tvJSGV7zPiE"
+            },
+            {
+                title: "Craigslist-Clean",
+                desc: "A minimalistic clone+scraper of craigslist, built in Django.",
+                img: "img/port11.jpg",
+                tag: "Web Scraper",
+                github: "https://github.com/AishikNagar/Craigslist-clone",
+                demo: ""
+            },
+            {
+                title: "Pong Browser AI",
+                desc: "An AI agent which learns how to play while competing against the user, built in tensorflow.js.",
+                img: "img/port12.jpg",
+                tag: "Tensorflow.js",
+                github: "https://github.com/AishikNagar/Pong-AI",
+                demo: ""
+            },
+            {
+                title: "Edu Pic",
+                desc: "A flask web app which detects objects and relays the science behind them. Top 7 in enlighteNUS Hackathon!",
+                img: "img/port13.jpg",
+                tag: "EdTech",
+                github: "https://github.com/AishikNagar/Edu-PIC",
+                demo: ""
+            }
+        ];
+
+        const mediaData = [
+            { title: "DementiCare Google Solutions Challenge Live Demo", source: "YouTube", desc: "Live Demo for Google's Solution Challenge, in which I emerged a winner. The video was seen live by thousands across the world.", link: "https://www.youtube.com/embed/Z2p56YCBvHY", type: "video" },
+            { title: "Featured on Google Developers Blog Post", source: "Google Developers Blog", desc: "Google Developers Blog Post covers emerging and talented developers across the world, who are using Google Technologies to make a change.", link: "https://developers.googleblog.com/2021/07/dsc-students-building-better-world.html", type: "article", icon: "fab fa-google" },
+            { title: "Feature on NTU Website", source: "NTU Official", desc: "Nanayang Technological University coverage for my achievements and accolades.", link: "https://www.ntu.edu.sg/eee/student-life/mr-nagar-aishik", type: "article", icon: "fas fa-university" },
+            { title: "Google Developers Linkedin Mention", source: "LinkedIn", desc: "Google Linkedin mentioning my achievements in Google Developer Solutions Challenge.", link: "https://www.linkedin.com/posts/googledevelopers_developerstudentclubs-activity-6837123571710476288-n7TA", type: "article", icon: "fab fa-linkedin" },
+            { title: "Google Singapore Coverage", source: "LinkedIn", desc: "Google Singapore and Google Startup Ecosystem Coverage on LinkedIn for winning Solution Challenge.", link: "https://www.linkedin.com/posts/janisetan_developerstudentclubs-activity-6837894590536806400-3Ik8", type: "article", icon: "fab fa-linkedin" },
+            { title: "Google La Kopi Talk", source: "YouTube", desc: "Speaker at Google's open mic night on Flutter and Firebase.", link: "https://www.youtube.com/embed/EkqxQjshnwA", type: "video" },
+            { title: "Features on Google Students Socials", source: "Twitter", desc: "Google Students Official Handle Feature for winning Solution Challenge and building DementiCare.", link: "https://twitter.com/googlestudents/status/1431359506101903361", type: "article", icon: "fab fa-twitter" },
+            { title: "Microsoft APAC Hackathon Winner", source: "Microsoft", desc: "Microsoft coverage for winning 1st Prize and Best use of Azure.", link: "https://www.linkedin.com/posts/hackerearth_microsoft-virtual-hackathon-2022-ugcPost-6961030742478897152-sN7I", type: "article", icon: "fab fa-microsoft" },
+            { title: "NTU Coverage on Microsoft Win", source: "LinkedIn", desc: "NTU EEE official coverage for winning the APAC Microsoft Hackathon.", link: "https://www.linkedin.com/posts/ntueee_naturaldisaster-riskmanagement-ntueee-activity-6952906258198777856-Kgqv", type: "article", icon: "fab fa-linkedin" },
+            { title: "SGTech Techblazer Website", source: "Techblazer", desc: "Featured for winning the Gold Prize in Singapore's National Tech Award.", link: "https://techblazerawards.sg/Past-Winners/2021-Winners", type: "article", icon: "fas fa-trophy" },
+            { title: "Straits Times Feature", source: "Straits Times", desc: "Featured in Global Section for winning the Gold Award for Techblazer Awards Singapore.", link: "https://www.straitstimes.com/", type: "article", icon: "far fa-newspaper" },
+            { title: "CNA Radio Coverage", source: "CNA938", desc: "CNA FM Radio covered my development of DementiCare and win in TechBlazer Awards.", link: "https://sg.radiocut.fm/radiostation/cna/listen/2022/01/25/09/00/00/", type: "article", icon: "fas fa-microphone-alt" },
+            { title: "Biz360.TV News Coverage", source: "Biz360.TV", desc: "News coverage for Techblazer Winners on Biz360 Channel.", link: "https://www.biz360.tv/post/winners-announced-imda-sgtech-techblazer-awards-2021", type: "article", icon: "fas fa-tv" },
+            { title: "8World News Article", source: "8World", desc: "8world Delivers Chinese news article on my win in Techblazer Awards for DementiCare.", link: "https://www.8world.com/singapore/techblazer-awards-1709076", type: "article", icon: "far fa-newspaper" },
+            { title: "Koh Boon Hwee Scholar's Award", source: "NTU", desc: "Featured on NTU website for University Scholar's Award Gold Medal.", link: "https://www.ntu.edu.sg/convocation/about-convocation/medals-and-prizes/koh-boon-hwee-scholars-award", type: "article", icon: "fas fa-university" },
+            { title: "Google Hackfest Top 3", source: "LinkedIn", desc: "Featured on the NTU socials for being the Top 3 in Google Hackfest, Singapore.", link: "https://www.linkedin.com/posts/ntusg_ntusg-machinelearning-verticalgreenery-activity-6941396886733889536-ijtq", type: "article", icon: "fab fa-linkedin" },
+            { title: "NTU SCSE Feature", source: "Instagram", desc: "Featured on the NTU School of Computer Science and Engineering for Winning the Microsoft Hackathon.", link: "https://www.instagram.com/p/CglhVkglszn/", type: "article", icon: "fab fa-instagram" },
+            { title: "NTU Solution Challenge Coverage", source: "NTU Web", desc: "NTU coverage for being the first ever team from Singapore to reach the World Finals and win.", link: "https://www.ntu.edu.sg/scse/news-events/news/detail/ug-students-in-google-solutions-challenge-top-10", type: "article", icon: "fas fa-globe" },
+            { title: "NTU Innovation Feature", source: "Instagram", desc: "Featured on NTU Instagram page to attract and inspire students to innovate@NTU.", link: "https://www.instagram.com/p/CcsfT82vBT0/", type: "article", icon: "fab fa-instagram" },
+            { title: "Grab HackForGood Finalist", source: "HackerEarth", desc: "Feature on Grab Hack for good competition website as a Global Top 10 Finalist.", link: "https://grabhackforgood.hackerearth.com/", type: "article", icon: "fas fa-code" },
+            { title: "NTU Techblazer Coverage", source: "NTU Web", desc: "NTU coverage on their website for winning the Gold Award in Techblazer Awards.", link: "https://www.ntu.edu.sg/scse/news-events/news/detail/champions---techblazer-awards-2021", type: "article", icon: "fas fa-university" },
+            { title: "NTU Google Hackfest Coverage", source: "Instagram", desc: "NTU coverage on their website and social media for coming Top 3 in Google HackFest.", link: "https://www.instagram.com/p/Ceqou28vCXk/", type: "article", icon: "fab fa-instagram" },
+            { title: "15K Entrepreneurship Top 3", source: "Facebook", desc: "Media coverage for placing top 3 in the 15K Entrepreneurship Competition, Singapore.", link: "https://www.facebook.com/NTUsg/posts/4799076663464807", type: "article", icon: "fab fa-facebook" },
+            { title: "iNTUition v7.0 Keynote", source: "YouTube", desc: "My closing keynote of the hackathon as Chairperson.", link: "https://www.youtube.com/embed/ey8sePPPLlg", type: "video" }
+        ];
+
+        const scholarData = [
+            {
+                title: "uMedSum: A Unified Framework for Clinical Abstractive Summarization",
+                authors: "A Nagar, Y Liu, AT Liu, V Schlegel, VP Dwivedi, AK Kaliya-Perumal...",
+                journal: "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL), Main Conference, Oral Presentation",
+                year: "2025",
+                citations: "Cited by 8",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:M05iB0D1s5AC"
+            },
+            {
+                title: "Zero-shot visual reasoning by vision-language models: Benchmarking and analysis",
+                authors: "A Nagar, S Jaiswal, C Tan",
+                journal: "2024 International Joint Conference on Neural Networks (IJCNN)",
+                year: "2024",
+                citations: "Cited by 20",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:a0OBvERweLwC"
+            },
+            {
+                title: "LLMs are not Zero-Shot Reasoners for Biomedical Information Extraction",
+                authors: "A Nagar, V Schlegel, TT Nguyen, H Li, Y Wu, K Binici, S Winkler",
+                journal: "The Sixth Workshop on Insights from Negative Results in NLP",
+                year: "2025",
+                citations: "Cited by 7",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:pqnbT2bcN3wC"
+            },
+            {
+                title: "Dissecting Zero-Shot Visual Reasoning Capabilities in Vision and Language Models",
+                authors: "A Nagar, S Jaiswal, C Tan",
+                journal: "Tiny Paper, International Conference on Learning Representations (ICLR), Invited to Present (Notable)",
+                year: "2024",
+                citations: "Cited by 1",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:yD5IFk8b50cC"
+            },
+            {
+                title: "How do Transformer Embeddings Represent Compositions? A Functional Analysis",
+                authors: "A Nagar, IS Rawal, M Dhanania, C Tan",
+                journal: "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL), Findings",
+                year: "2025",
+                citations: "",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:vDijr-p_gm4C"
+            },
+            {
+                title: "Building a natural disaster risk management system for resilient communities",
+                authors: "A Nagar",
+                journal: "Nanyang Technological University",
+                year: "2022",
+                citations: "",
+                link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=934q_A8AAAAJ&citation_for_view=934q_A8AAAAJ:u5HHmVD_uO8C"
+            }
+        ];
+
+        const awardsData = [
+            { title: "University Scholars Gold Medal (Koh Boon Hwee Scholars Award)", desc: "Awarded to 8 out of 10,000+ students in NTU Undergraduate Cohort.", icon: "fas fa-certificate text-googleBlue" },
+            { title: "NTU EEE Excellence Award", desc: "Awarded to 4 out of 750 students in NTU EEE Class of 2022.", icon: "fas fa-award text-googleYellow" },
+            { title: "Nanyang Science and Engineering Scholarship", desc: "Full Undergraduate Scholarship and Stipend.", icon: "fas fa-university text-googleRed" },
+            { title: "World Champion, Google Developer Solution Challenge", desc: "First-ever winner from Singapore, winner among 10,000+ participants.", icon: "fas fa-globe text-googleGreen" },
+            { title: "Champion, Microsoft APAC Hackathon", desc: "Invited admission into Microsoft Hub for Startup Founders (funding up to USD 250k).", icon: "fas fa-trophy text-blue-600" },
+            { title: "Best Use of Azure, Microsoft APAC Hackathon", desc: "Special category winner for technical excellence on Azure.", icon: "fab fa-microsoft text-blue-400" },
+            { title: "National Gold, Singapore Techblazer Awards 2021", desc: "Singapore's most prestigious Tech Innovation award, winner among 450+ products.", icon: "fas fa-medal text-googleRed" },
+            { title: "National Finalist, Singapore Techblazer Awards 2022", desc: "Recognized for continued innovation excellence.", icon: "fas fa-star text-orange-500" },
+            { title: "Top 3 Winner, Google Hackfest Singapore", desc: "Google's top student developer competition in Singapore.", icon: "fab fa-google text-googleBlue" },
+            { title: "Top 3 Winner, 15K Technopreneurship Competition", desc: "Modelled on MIT's $100K Entrepreneurship Competition for Singapore.", icon: "fas fa-briefcase text-gray-600" },
+            { title: "Top 10 Finalist, Grab Global Hackathon", desc: "Selected from thousands of global entries.", icon: "fas fa-car text-green-600" },
+            { title: "Top 7 Finalist, EnlighteNUS Hackathon", desc: "Awarded Best Educational Hack.", icon: "fas fa-graduation-cap text-purple-600" },
+            { title: "ASUS Engineering Excellence Award", desc: "Youngest Nominee for Best Code Quality.", icon: "fas fa-code text-indigo-600" },
+            { title: "ASUS Business Innovation Award", desc: "For Clinical AI Assistant.", icon: "fas fa-notes-medical text-red-500" },
+            { title: "Outstanding Student Personality", desc: "For graduating class of 2018 in high school.", icon: "fas fa-user-graduate text-yellow-500" },
+            { title: "All India Rank 4", desc: "In Indian national high school examinations (ISC, 2018).", icon: "fas fa-ranking-star text-blue-500" }
+        ];
+
+        // --- 2. RENDER FUNCTIONS ---
+
+        function renderProjects() {
+            const container = document.getElementById('projects-content');
+            if(!container) return;
+            container.innerHTML = projectsData.map(p => `
+                <div class="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-material-hover transition duration-200 group flex flex-col h-full">
+                    <div class="h-48 overflow-hidden bg-gray-100 relative">
+                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://via.placeholder.com/400x200?text=Project+Image'">
+                        ${p.tag ? `<div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/50 to-transparent"><span class="text-white text-xs font-bold px-2">${p.tag}</span></div>` : ''}
+                    </div>
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="font-medium text-textDark mb-2 text-lg">${p.title}</h3>
+                        <p class="text-sm text-textGray flex-grow line-clamp-3 mb-4">${p.desc}</p>
+                        <div class="mt-auto flex gap-4 border-t border-gray-100 pt-3">
+                            ${p.github ? `<a href="${p.github}" target="_blank" class="text-textGray hover:text-googleBlue text-sm font-medium flex items-center gap-1"><i class="fab fa-github"></i> Source</a>` : ''}
+                            ${p.demo ? `<a href="${p.demo}" target="_blank" class="text-textGray hover:text-googleRed text-sm font-medium flex items-center gap-1"><i class="fab fa-youtube"></i> Demo</a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderScholar() {
+            const container = document.getElementById('scholar-content');
+            if(!container) return;
+            container.innerHTML = scholarData.map(pub => `
+                <div class="group">
+                    <h3 class="text-lg text-linkBlue font-medium group-hover:underline cursor-pointer">
+                        <a href="${pub.link}" target="_blank">${pub.title}</a>
+                    </h3>
+                    <div class="text-green-700 text-sm mb-1">${pub.authors}</div>
+                    <div class="text-textGray text-sm">${pub.journal}, ${pub.year}</div>
+                    ${pub.citations ? `<div class="text-textGray text-sm mt-1">${pub.citations}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderAwards() {
+            const container = document.getElementById('awards-content');
+            if(!container) return;
+            container.innerHTML = awardsData.map(a => `
+                <div class="p-4 flex gap-4 items-start hover:bg-gray-50 transition">
+                    <i class="${a.icon} text-xl mt-1"></i>
+                    <div>
+                        <h3 class="font-bold text-textDark">${a.title}</h3>
+                        <p class="text-sm text-textGray">${a.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderMedia() {
+            const container = document.getElementById('media-content');
+            if(!container) return;
+            container.innerHTML = mediaData.map(m => {
+                let iconOrImg = '';
+                if(m.type === 'video') {
+                    // Extract video ID for thumbnail if youtube
+                    const videoId = m.link.split('/').pop().split('?')[0];
+                    const thumb = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+                    iconOrImg = `<div class="w-24 h-24 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden relative">
+                                    <img src="${thumb}" class="w-full h-full object-cover" alt="Video">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/20"><i class="fas fa-play text-white"></i></div>
+                                 </div>`;
+                } else {
+                    iconOrImg = `<div class="w-24 h-24 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden flex items-center justify-center text-3xl text-gray-400">
+                                    <i class="${m.icon || 'far fa-newspaper'}"></i>
+                                 </div>`;
+                }
+
+                return `
+                <a href="${m.link}" target="_blank" class="block bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition group">
+                    <div class="flex gap-4">
+                        ${iconOrImg}
+                        <div>
+                            <h3 class="font-medium text-linkBlue group-hover:underline leading-snug mb-1 line-clamp-2">${m.title}</h3>
+                            <p class="text-sm text-green-700 mb-1">${m.source}</p>
+                            <p class="text-xs text-textGray line-clamp-2">${m.desc}</p>
+                        </div>
+                    </div>
+                </a>`;
+            }).join('');
+        }
+
+        // --- 3. EXECUTE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            renderScholar();
+            renderAwards();
+            renderMedia();
+            
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => menu.classList.add('hidden'));
+                });
+            }
+        });
+    </script>
 </body>
 </html>
