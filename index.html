@@ -119,21 +119,21 @@
         }
 
         /* --- Floating Button Specific Styles --- */
-        #theme-toggle-fab {
+        #theme-toggle-fab, #cv-fab {
             background-color: #ffffff;
             color: #5f6368; /* Google Gray */
             border: 1px solid #dadce0;
         }
 
         /* Specific Dark Mode Look for the FAB */
-        body.dark #theme-toggle-fab {
+        body.dark #theme-toggle-fab, body.dark #cv-fab {
             background-color: #303134; /* Google Dark Grey */
             color: #e8eaed; /* Light Text */
             border-color: #5f6368;
         }
 
         /* Hover Effect for Dark Mode */
-        body.dark #theme-toggle-fab:hover {
+        body.dark #theme-toggle-fab:hover, body.dark #cv-fab:hover {
             background-color: #3c4043;
         }
     </style>
@@ -760,6 +760,10 @@
             </div>
         </div>
     </section>
+
+    <a href="./Aishik_Nagar_Resume.pdf" download target="_blank" id="cv-fab" class="fixed bottom-24 right-6 z-[60] p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group flex items-center justify-center" aria-label="Download CV" title="Download Resume">
+        <i class="fas fa-file-pdf text-xl text-googleRed"></i>
+    </a>
 
     <button id="theme-toggle-fab" class="fixed bottom-6 right-6 z-[60] p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group" aria-label="Toggle Dark Mode">
         <i class="fas fa-moon text-xl group-hover:rotate-12 transition-transform"></i>
